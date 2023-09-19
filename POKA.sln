@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{AD087403-D161-4B84-B9C2-7CBC10811311}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POKA.Utils", "POKA.Utils\POKA.Utils.csproj", "{A6D81A18-D448-439D-B67F-EB12D706B69D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POKA.Utils.Infrastructure.MongoDb", "POKA.Utils.Infrastructure.MongoDb\POKA.Utils.Infrastructure.MongoDb.csproj", "{80BD3FE9-8FDB-419E-A838-9BD715A853BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{969CAEBA-F146-4428-A9D0-173270F3AF57}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D81A18-D448-439D-B67F-EB12D706B69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D81A18-D448-439D-B67F-EB12D706B69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D81A18-D448-439D-B67F-EB12D706B69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D81A18-D448-439D-B67F-EB12D706B69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80BD3FE9-8FDB-419E-A838-9BD715A853BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80BD3FE9-8FDB-419E-A838-9BD715A853BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80BD3FE9-8FDB-419E-A838-9BD715A853BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80BD3FE9-8FDB-419E-A838-9BD715A853BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6D81A18-D448-439D-B67F-EB12D706B69D} = {AD087403-D161-4B84-B9C2-7CBC10811311}
+		{80BD3FE9-8FDB-419E-A838-9BD715A853BE} = {AD087403-D161-4B84-B9C2-7CBC10811311}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92AA35AF-04B0-4694-B237-726ED90BE402}
+	EndGlobalSection
+EndGlobal
