@@ -25,6 +25,7 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
             IApplicationNameProvider applicationNameProvider
         )
         {
+            this._applicationNameProvider = applicationNameProvider;
             this._mongoCollection = database.MongoDatabase.GetCollection<RequestEntity>(collectionNameProvider.GetCollectionName<RequestEntity>());
             _scopeId = BaseObjectId.Create<RequestScopeId>();
         }
