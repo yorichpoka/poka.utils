@@ -1,0 +1,10 @@
+﻿global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.EntityFrameworkCore;
+global using POKA.Utils.ValueObjects;
+global using POKA.Utils.Repositories;
+global using POKA.Utils.Extensions;
+global using POKA.Utils.Interfaces;
+global using POKA.Utils.Entities;
+global using POKA.Utils.Enums;
+global using Newtonsoft.Json;
+global using POKA.Utils.DTOs;
