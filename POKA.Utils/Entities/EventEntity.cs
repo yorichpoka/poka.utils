@@ -5,7 +5,7 @@ namespace POKA.Utils.Entities
 {
     public class EventEntity : BaseEntity<EventId>, IHasCreatedOn, IHasVersion
     {
-        public BaseObjectId AggregateId { get; private set; } = null!;
+        public string AggregateId { get; private set; } = null!;
         public string AggregateType { get; private set; } = null!;
         public string Type { get; private set; } = null!;
         public string Data { get; private set; } = null!;
@@ -18,7 +18,7 @@ namespace POKA.Utils.Entities
         {
         }
 
-        public EventEntity(BaseObjectId aggregateId, string aggregateType, string type, string data, bool isSnapshot, int version)
+        public EventEntity(string aggregateId, string aggregateType, string type, string data, int version, bool isSnapshot = false)
         {
             Id = BaseObjectId.Create<EventId>();
             CreatedOn = DateTime.UtcNow;
