@@ -33,6 +33,9 @@ namespace POKA.Utils.Infrastructure.MongoDb.EntityTypeConfiguration
 
                         map.MapProperty(l => l.ParentId)
                            .SetSerializer(new BsonSerializerObjectId<RequestId>());
+
+                        map.MapProperty(l => l.CreatedByUserId)
+                           .SetSerializer(new BsonSerializerObjectId<UserId>());
                     }
                 );
         }

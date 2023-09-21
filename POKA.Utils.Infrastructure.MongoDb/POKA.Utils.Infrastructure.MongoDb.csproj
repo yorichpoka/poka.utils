@@ -11,13 +11,16 @@
   <ItemGroup>
 	<PackageReference Include="MongoDBMigrations" Version="2.2.0" />
 	<PackageReference Include="MongoDB.Driver" Version="2.21.0" />
-	<PackageReference Include="POKA.Utils" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="readme.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\POKA.Utils.Infrastructure\POKA.Utils.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

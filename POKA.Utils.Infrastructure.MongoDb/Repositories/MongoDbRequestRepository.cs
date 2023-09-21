@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using POKA.Utils.Extensions;
 using POKA.Utils.Interfaces;
 using POKA.Utils.Entities;
-using POKA.Utils.Enums;
 using Newtonsoft.Json;
 using MongoDB.Driver;
 using MediatR;
@@ -16,18 +15,21 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
     {
         private readonly IMongoCollection<RequestEntity> _mongoCollection;
         private IApplicationNameProvider _applicationNameProvider;
+        private ICurrentUserIdProvider _currentUserIdProvider;
         private RequestId? _parentId;
         private RequestScopeId _scopeId;
 
         public MongoDbRequestRepository(
             EventStoreMongoDatabase database, 
-            ICollectionNameProvider collectionNameProvider, 
+            ICollectionNameProvider collectionNameProvider,
+            ICurrentUserIdProvider currentUserIdProvider,
             IApplicationNameProvider applicationNameProvider
         )
         {
             this._applicationNameProvider = applicationNameProvider;
+            this._currentUserIdProvider = currentUserIdProvider;
             this._mongoCollection = database.MongoDatabase.GetCollection<RequestEntity>(collectionNameProvider.GetCollectionName<RequestEntity>());
-            _scopeId = BaseObjectId.Create<RequestScopeId>();
+            this._scopeId = BaseObjectId.Create<RequestScopeId>();
         }
 
         public Task<long> CountAsync(Expression<Func<RequestEntity, bool>> predicate, CancellationToken cancellationToken = default) =>
@@ -44,8 +46,7 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
             var requestEntity = new RequestEntity(
                 data: JsonConvert.SerializeObject(request, Constants.DefaultJsonSerializerSettings),
                 applicationPerformer: this._applicationNameProvider.ApplicationName,
-                id: BaseObjectId.Create<RequestId>(),
-                status: RequestStatusEnum.Pending,
+                createdByUserId: this._currentUserIdProvider.Id,
                 name: request.GetType().Name,
                 createdOn: DateTime.UtcNow,
                 parentId: this._parentId,
