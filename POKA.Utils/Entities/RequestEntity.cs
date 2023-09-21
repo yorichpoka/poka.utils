@@ -32,7 +32,6 @@ namespace POKA.Utils.Entities
             string applicationPerformer,
             string name, 
             string data, 
-            DateTime createdOn, 
             UserId? createdByUserId = null, 
             RequestId? parentId = null
         )
@@ -40,9 +39,9 @@ namespace POKA.Utils.Entities
             Id = BaseObjectId.Create<RequestId>();
             Status = RequestStatusEnum.Pending;
             Type = RequestTypeEnum.Query;
+            CreatedOn = DateTime.UtcNow;
             ApplicationPerformer = applicationPerformer;
             CreatedByUserId = createdByUserId;
-            CreatedOn = createdOn;
             ParentId = parentId;
             ScopeId = scopeId;
             Duration = null;

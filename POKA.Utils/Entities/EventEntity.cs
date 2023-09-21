@@ -1,5 +1,5 @@
-﻿using POKA.Utils.Interfaces;
-using POKA.Utils.ValueObjects;
+﻿using POKA.Utils.ValueObjects;
+using POKA.Utils.Interfaces;
 
 namespace POKA.Utils.Entities
 {
@@ -18,16 +18,16 @@ namespace POKA.Utils.Entities
         {
         }
 
-        public EventEntity(EventId id, BaseObjectId aggregateId, string aggregateType, string type, string data, bool isSnapshot, DateTime createdOn, int version)
+        public EventEntity(BaseObjectId aggregateId, string aggregateType, string type, string data, bool isSnapshot, int version)
         {
+            Id = BaseObjectId.Create<EventId>();
+            CreatedOn = DateTime.UtcNow;
             AggregateType = aggregateType;
             AggregateId = aggregateId;
             IsSnapshot = isSnapshot;
-            CreatedOn = createdOn;
             Version = version;
             Type = type;
             Data = data;
-            Id = id;
         }
     }
 }
