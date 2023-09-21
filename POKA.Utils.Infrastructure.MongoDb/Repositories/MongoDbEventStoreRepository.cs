@@ -41,7 +41,7 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
 
             if (aggregateId is not null)
             {
-                filterDefinition &= filterBuilder.Eq(l => l.AggregateId, aggregateId);
+                filterDefinition &= filterBuilder.Eq(l => l.AggregateId, aggregateId.Value.ToString());
             }
 
             if (aggregateType is not null && aggregateType.HasValue())
@@ -97,7 +97,7 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
                 //domainEvent.AssignId(eventEntity.AggregateId as object);
 
                 var result = new DomainEventDTO<TObjectId>(
-                    aggregateId: eventEntity.AggregateId,
+                    aggregateId: BaseObjectId.Parse<TObjectId>(eventEntity.AggregateId),
                     createdOn: eventEntity.CreatedOn,
                     version: eventEntity.Version,
                     domainEvent: domainEvent,
@@ -113,13 +113,10 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
         {
             var eventEntity = new EventEntity(
                 data: JsonConvert.SerializeObject(domainEvent, Constants.DefaultJsonSerializerSettings),
-                id: BaseObjectId.Create<EventId>(),
+                aggregateId: aggregateId.Value.ToString(),
                 type: domainEvent.GetType().Name,
                 aggregateType: aggregateType,
-                version: domainEvent.Version,
-                createdOn: DateTime.UtcNow,
-                aggregateId: aggregateId,
-                isSnapshot: false
+                version: domainEvent.Version
             );
 
             await this._mongoCollection.CreateAsync(eventEntity, null, cancellationToken);
@@ -135,7 +132,7 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
 
             var latestEventSnapshotEntity = this._mongoCollection
                                                 .AsQueryable()
-                                                .Where(l => l.IsSnapshot && l.AggregateId == aggregateId)
+                                                .Where(l => l.IsSnapshot && l.AggregateId == aggregateId.Value.ToString())
                                                 .OrderByDescending(l => l.Version)
                                                 .FirstOrDefault();
 
@@ -176,11 +173,9 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
                                     .Select(
                                         l => new EventEntity(
                                                 data: JsonConvert.SerializeObject(l, Constants.DefaultJsonSerializerSettings),
+                                                aggregateId: aggregate.Id.Value.ToString(),
                                                 isSnapshot: versionSnapshot == l.Version,
                                                 aggregateType: aggregate.GetType().Name,
-                                                id: BaseObjectId.Create<EventId>(),
-                                                aggregateId: aggregate.Id,
-                                                createdOn: DateTime.UtcNow,
                                                 type: l.GetType().Name,
                                                 version: l.Version
                                             )
@@ -198,7 +193,7 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
             var latestSnapshotVersion =
                 this._mongoCollection
                     .AsQueryable()
-                    .Where(l => l.IsSnapshot && l.AggregateId == aggregate.Id)
+                    .Where(l => l.IsSnapshot && l.AggregateId == aggregate.Id.Value.ToString())
                     .Select(l => l.Version)
                     .LastOrDefault();
 

@@ -2,10 +2,11 @@
 using POKA.Utils.Infrastructure.MongoDb.Repositories;
 using POKA.Utils.Infrastructure.MongoDb.DbContexts;
 using Microsoft.Extensions.DependencyInjection;
+using POKA.Utils.Infrastructure.MongoDb;
 using POKA.Utils.Repositories;
 using MongoDB.Driver;
 
-namespace POKA.Utils.Infrastructure.MongoDb
+namespace POKA.Utils.Extensions
 {
     public static class DependencyInjection
     {

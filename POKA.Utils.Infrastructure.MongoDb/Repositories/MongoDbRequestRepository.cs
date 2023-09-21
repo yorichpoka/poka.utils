@@ -48,7 +48,6 @@ namespace POKA.Utils.Infrastructure.MongoDb.Repositories
                 applicationPerformer: this._applicationNameProvider.ApplicationName,
                 createdByUserId: this._currentUserIdProvider.Id,
                 name: request.GetType().Name,
-                createdOn: DateTime.UtcNow,
                 parentId: this._parentId,
                 scopeId: this._scopeId
             );
