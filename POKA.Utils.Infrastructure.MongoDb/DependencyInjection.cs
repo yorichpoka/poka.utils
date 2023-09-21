@@ -18,7 +18,7 @@ namespace POKA.Utils.Infrastructure.MongoDb
                 .AddSingleton<EventStoreMongoDatabase>(
                     serviceProvider =>
                     {
-                        var appSettingsProvider = serviceProvider.GetRequiredService<IMongoDbConnectionStrings>();
+                        var appSettingsProvider = serviceProvider.GetRequiredService<IMongoDbConnectionStringsProvider>();
                         var mongoClient = new MongoClient(appSettingsProvider.EventStore.connectionString);
                         var mongoDataBase = mongoClient.GetDatabase(appSettingsProvider.EventStore.dataBaseName);
                         var dataBase = new EventStoreMongoDatabase(mongoDataBase, appSettingsProvider.AllowUsingOfTransaction);
@@ -29,7 +29,7 @@ namespace POKA.Utils.Infrastructure.MongoDb
                 .AddSingleton<MasterMongoDatabase>(
                     serviceProvider =>
                     {
-                        var appSettingsProvider = serviceProvider.GetRequiredService<IMongoDbConnectionStrings>();
+                        var appSettingsProvider = serviceProvider.GetRequiredService<IMongoDbConnectionStringsProvider>();
                         var mongoClient = new MongoClient(appSettingsProvider.Master.connectionString);
                         var mongoDataBase = mongoClient.GetDatabase(appSettingsProvider.Master.dataBaseName);
                         var dataBase = new MasterMongoDatabase(mongoClient, mongoDataBase, appSettingsProvider.AllowUsingOfTransaction);

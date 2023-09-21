@@ -1,6 +1,6 @@
 ﻿namespace POKA.Utils.Infrastructure.MongoDb
 {
-    public interface IMongoDbConnectionStrings
+    public interface IMongoDbConnectionStringsProvider
     {
         bool AllowUsingOfTransaction { get; }
         (string connectionString, string dataBaseName) EventStore { get; }
