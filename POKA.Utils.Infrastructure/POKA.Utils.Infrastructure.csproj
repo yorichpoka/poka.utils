@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Admin\.nuget\packages\poka.utils\1.0.4\contentFiles\any\net7.0\readme.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="POKA.Utils" Version="1.0.4" />
+  </ItemGroup>
+
+</Project>
