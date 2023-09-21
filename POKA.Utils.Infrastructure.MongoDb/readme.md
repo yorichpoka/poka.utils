@@ -4,3 +4,4 @@
 	- IMongoDbConnectionStringsProvider
 	- IApplicationNameProvider
 	- ICollectionNameProvider
+	- ICurrentUserIdProvider
