@@ -1,10 +1,11 @@
-﻿using MongoDB.Bson.Serialization.Conventions;
+﻿using POKA.Utils.Infrastructure.MongoDb.DocumentTypeConfiguration;
+using MongoDB.Bson.Serialization.Conventions;
 
 namespace POKA.Utils.Infrastructure.MongoDb.EntityTypeConfiguration
 {
-    public static class MongoDbConfiguration
+    public class MongoDbConfiguration : IDocumentTypeConfiguration
     {
-        public static void Configure()
+        public void Configure()
         {
             ConventionRegistry
                 .Register(

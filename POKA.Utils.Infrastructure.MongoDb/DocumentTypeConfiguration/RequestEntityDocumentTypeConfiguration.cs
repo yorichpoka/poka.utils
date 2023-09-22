@@ -1,4 +1,5 @@
-﻿using POKA.Utils.Infrastructure.MongoDb.Serializers;
+﻿using POKA.Utils.Infrastructure.MongoDb.DocumentTypeConfiguration;
+using POKA.Utils.Infrastructure.MongoDb.Serializers;
 using MongoDB.Bson.Serialization;
 using POKA.Utils.ValueObjects;
 using POKA.Utils.Entities;
@@ -6,9 +7,9 @@ using POKA.Utils.Enums;
 
 namespace POKA.Utils.Infrastructure.MongoDb.EntityTypeConfiguration
 {
-    public static class RequestEntityDocumentTypeConfiguration
+    public class RequestEntityDocumentTypeConfiguration : IDocumentTypeConfiguration
     {
-        public static void Configure()
+        public void Configure()
         {
             BsonClassMap
                 .TryRegisterClassMap<RequestEntity>(
