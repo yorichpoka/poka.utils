@@ -4,17 +4,12 @@ using POKA.Utils.Entities;
 
 namespace POKA.Utils.Infrastructure.MongoDb.EntityTypeConfiguration
 {
-    public static class EventEntityTypeConfiguration
+    public static class EventEntityDocumentTypeConfiguration
     {
         public static void Configure()
         {
-            if (BsonClassMap.IsClassMapRegistered(typeof(EventEntity)))
-            {
-                return;
-            }
-
             BsonClassMap
-                .RegisterClassMap<EventEntity>(
+                .TryRegisterClassMap<EventEntity>(
                     map => {
                         map.AutoMap();
 

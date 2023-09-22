@@ -6,17 +6,12 @@ using POKA.Utils.Enums;
 
 namespace POKA.Utils.Infrastructure.MongoDb.EntityTypeConfiguration
 {
-    public static class RequestEntityTypeConfiguration
+    public static class RequestEntityDocumentTypeConfiguration
     {
         public static void Configure()
         {
-            if (BsonClassMap.IsClassMapRegistered(typeof(RequestEntity)))
-            {
-                return;
-            }
-
             BsonClassMap
-                .RegisterClassMap<RequestEntity>(
+                .TryRegisterClassMap<RequestEntity>(
                     map => {
                         map.AutoMap();
 

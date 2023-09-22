@@ -12,7 +12,7 @@ namespace POKA.Utils.Extensions
     {
         public static IServiceCollection AddMongoDbInfrastructure(this IServiceCollection services)
         {
-            MongoDBEntityTypeConfiguration.Configure();
+            MongoDBDocumentTypeConfiguration.Configure();
 
             // Singleton
             services
