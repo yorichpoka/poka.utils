@@ -1,16 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace POKA.POC.WindowsService.WindowsService.Domain.Entities
 {
     public class ItemEntity
     {
         public Guid Id { get; private set; }
-        public object Value { get; private set; }
+        public string Name { get; private set; }
 
-        public ItemEntity(object value)
+        public ItemEntity(string name)
         {
             Id = Guid.NewGuid();
-            Value = value;
+            Name = name;
+        }
+
+        public override string ToString()
+        {
+            var jsonStringValue = JsonConvert.SerializeObject(this);
+
+            return jsonStringValue;
         }
     }
 }
