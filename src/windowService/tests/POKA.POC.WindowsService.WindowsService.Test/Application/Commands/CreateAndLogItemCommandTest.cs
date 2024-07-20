@@ -1,8 +1,8 @@
 ﻿using POKA.POC.WindowsService.WindowsService.Application.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 using System;
-using Unity;
 
 namespace POKA.POC.WindowsService.WindowsService.Test.Application.Commands
 {
@@ -13,7 +13,7 @@ namespace POKA.POC.WindowsService.WindowsService.Test.Application.Commands
         public void CanExecuteCommand()
         {
             // Arrange
-            var mediator = this._unityContainer.Resolve<IMediator>();
+            var mediator = this._ServiceProvider.GetRequiredService<IMediator>();
             var createAndLogItemCommand = new CreateAndLogItemCommand(DateTime.UtcNow.ToString());
 
             // Act

@@ -1,6 +1,7 @@
-﻿using POKA.POC.WindowsService.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
+using POKA.POC.WindowsService.Extensions;
 using System.ServiceProcess;
-using Unity;
+using System;
 
 namespace POKA.POC.WindowsService.WindowsService
 {
@@ -11,23 +12,24 @@ namespace POKA.POC.WindowsService.WindowsService
         /// </summary>
         static void Main()
         {
-            var unityContainer = BuildIocContainer();
+            var serviceProvider = BuildServiceProvider();
 
             var servicesToRun = new ServiceBase[]
             {
-                unityContainer.Resolve<MainService>()
+                serviceProvider.GetRequiredService<MainService>()
             };
 
             ServiceBase.Run(servicesToRun);
         }
 
-        public static IUnityContainer BuildIocContainer()
+        public static IServiceProvider BuildServiceProvider()
         {
-            var unityContainer = new UnityContainer()
+            var serviceProvider = new ServiceCollection()
                                     .AddInfrastructure()
-                                    .RegisterType<MainService>();
+                                    .AddSingleton<MainService>()
+                                    .BuildServiceProvider();
 
-            return unityContainer;
+            return serviceProvider;
         }
     }
 }

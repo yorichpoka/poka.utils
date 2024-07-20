@@ -1,6 +1,6 @@
 ﻿using POKA.POC.WindowsService.WindowsService.Application.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Unity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace POKA.POC.WindowsService.WindowsService.Test.Application.Providers
 {
@@ -11,7 +11,7 @@ namespace POKA.POC.WindowsService.WindowsService.Test.Application.Providers
         public void CanGetVariables()
         {
             // Arrange
-            var appSettingsProvider = this._unityContainer.Resolve<IAppSettingsProvider>();
+            var appSettingsProvider = this._ServiceProvider.GetRequiredService<IAppSettingsProvider>();
 
             // Act
 

@@ -1,16 +1,18 @@
-﻿using POKA.POC.WindowsService.Extensions;
-using Unity;
+﻿using Microsoft.Extensions.DependencyInjection;
+using POKA.POC.WindowsService.Extensions;
+using System;
 
 namespace POKA.POC.WindowsService.WindowsService.Test
 {
     public abstract class BaseTest
     {
-        protected readonly IUnityContainer _unityContainer;
+        protected readonly IServiceProvider _ServiceProvider;
 
         protected BaseTest()
         {
-            _unityContainer = new UnityContainer()
-                                .AddInfrastructure();
+            _ServiceProvider =  new ServiceCollection()
+                                    .AddInfrastructure()
+                                    .BuildServiceProvider();
         }
     }
 }
