@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\POKA.Utils.Infrastructure.MongoDb\POKA.Utils.Infrastructure.MongoDb.csproj" />
+    <ProjectReference Include="..\..\src\POKA.Utils.Infrastructure.MongoDb\POKA.Utils.Infrastructure.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

@@ -14,9 +14,9 @@
 	  <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
     </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\POKA.Utils.Infrastructure\POKA.Utils.Infrastructure.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\POKA.Utils.Infrastructure\POKA.Utils.Infrastructure.csproj" />
+    </ItemGroup>
 
 
 </Project>
