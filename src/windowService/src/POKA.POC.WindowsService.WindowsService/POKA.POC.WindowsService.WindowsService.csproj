@@ -56,5 +56,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\POKA.POC.WindowsService.Application\POKA.POC.WindowsService.Application.csproj">
+      <Project>{eed0ec00-7dbb-4df4-b2a0-4e317e2ad14f}</Project>
+      <Name>POKA.POC.WindowsService.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POKA.POC.WindowsService.Domain\POKA.POC.WindowsService.Domain.csproj">
+      <Project>{7bd86179-550f-42c2-b1d2-c091443ef447}</Project>
+      <Name>POKA.POC.WindowsService.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POKA.POC.WindowsService.Infrastructure\POKA.POC.WindowsService.Infrastructure.csproj">
+      <Project>{58e3ae74-6a46-4591-859c-a796c4bebf97}</Project>
+      <Name>POKA.POC.WindowsService.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
