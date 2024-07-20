@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using POKA.POC.WindowsService.WindowsService.Infrastructure.Providers;
+using POKA.POC.WindowsService.WindowsService.Application.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using Unity.Microsoft.DependencyInjection;
 using System.Reflection;
+using Unity.Lifetime;
 using Unity;
 
 namespace POKA.POC.WindowsService.Extensions
@@ -9,7 +12,9 @@ namespace POKA.POC.WindowsService.Extensions
     {
         public static IUnityContainer AddInfrastructure(this IUnityContainer unityContainer)
         {
-            unityContainer.AddMediatR();
+            unityContainer
+                .RegisterType<IAppSettingsProvider, AppSettingsProvider>(new SingletonLifetimeManager())
+                .AddMediatR();
 
             return unityContainer;
         }
