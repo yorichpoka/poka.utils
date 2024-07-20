@@ -42,6 +42,7 @@
             this.serviceInstaller1.Description = "A test of windows service";
             this.serviceInstaller1.DisplayName = "POKA.POC.WindowsService.WindowsService";
             this.serviceInstaller1.ServiceName = "POKA.POC.WindowsService.WindowsService";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 

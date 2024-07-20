@@ -3,7 +3,7 @@ using System.ServiceProcess;
 
 namespace POKA.POC.WindowsService.WindowsService
 {
-    public abstract class AppServiceBase : ServiceBase
+    public class AppServiceBase : ServiceBase
     {
         public Task Start(params string[] args) => Task.Factory.StartNew(() => OnStart(args));
 
