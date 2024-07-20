@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace POKA.POC.WindowsService.Domain.Entities
+namespace POKA.POC.WindowsService.WindowsService.Domain.Entities
 {
     public class ItemEntity
     {
