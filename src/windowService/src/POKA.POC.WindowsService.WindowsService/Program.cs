@@ -11,7 +11,7 @@ namespace POKA.POC.WindowsService.WindowsService
         /// </summary>
         static void Main()
         {
-            var unityContainer = BuildUnityContainer();
+            var unityContainer = BuildIocContainer();
 
             var servicesToRun = new ServiceBase[]
             {
@@ -21,7 +21,7 @@ namespace POKA.POC.WindowsService.WindowsService
             ServiceBase.Run(servicesToRun);
         }
 
-        private static IUnityContainer BuildUnityContainer()
+        public static IUnityContainer BuildIocContainer()
         {
             var unityContainer = new UnityContainer()
                                     .AddInfrastructure()
