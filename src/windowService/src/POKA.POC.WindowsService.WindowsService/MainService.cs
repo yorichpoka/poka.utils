@@ -1,6 +1,6 @@
 ﻿using System.ServiceProcess;
 
-namespace POKA.POC.WindowsService
+namespace POKA.POC.WindowsService.WindowsService
 {
     public partial class MainService : ServiceBase
     {

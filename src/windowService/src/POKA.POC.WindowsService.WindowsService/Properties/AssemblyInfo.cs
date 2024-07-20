@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("POKA.POC.WindowsService")]
+[assembly: AssemblyTitle("POKA.POC.WindowsService.WindowsService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("POKA.POC.WindowsService")]
+[assembly: AssemblyProduct("POKA.POC.WindowsService.WindowsService")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("44a77099-9e15-4fe6-b009-d13fb928a6cf")]
+[assembly: Guid("23cac8b6-1e7d-43ce-932e-f6e999b9c09e")]
 
 // Version information for an assembly consists of the following four values:
 //

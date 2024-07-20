@@ -1,4 +1,4 @@
-﻿namespace POKA.POC.WindowsService
+﻿namespace POKA.POC.WindowsService.WindowsService
 {
     partial class MainService
     {

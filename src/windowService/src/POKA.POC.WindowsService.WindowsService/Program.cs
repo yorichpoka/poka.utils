@@ -1,6 +1,6 @@
 ﻿using System.ServiceProcess;
 
-namespace POKA.POC.WindowsService
+namespace POKA.POC.WindowsService.WindowsService
 {
     internal static class Program
     {
@@ -9,11 +9,11 @@ namespace POKA.POC.WindowsService
         /// </summary>
         static void Main()
         {
-            var ServicesToRun = new ServiceBase[]
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
             {
                 new MainService()
             };
-
             ServiceBase.Run(ServicesToRun);
         }
     }
