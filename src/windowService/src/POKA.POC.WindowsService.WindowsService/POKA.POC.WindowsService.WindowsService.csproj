@@ -116,8 +116,10 @@
   <ItemGroup>
     <Compile Include="Application\Commands\CreateAndLogItem\CreateAndLogItemCommandHandler.cs" />
     <Compile Include="Application\Commands\CreateAndLogItem\CreateAndLogItemCommand.cs" />
+    <Compile Include="Application\Interfaces\Providers\IAppSettingsProvider.cs" />
     <Compile Include="Domain\Entities\ItemEntity.cs" />
     <Compile Include="Infrastructure\DependencyInjection.cs" />
+    <Compile Include="Infrastructure\Providers\AppSettingsProvider.cs" />
     <Compile Include="MainService.cs">
       <SubType>Component</SubType>
     </Compile>
