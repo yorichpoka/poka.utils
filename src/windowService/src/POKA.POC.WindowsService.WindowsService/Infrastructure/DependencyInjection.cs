@@ -38,7 +38,7 @@ namespace POKA.POC.WindowsService.Extensions
             Log.Logger = new LoggerConfiguration()
                             .WriteTo
                                 .File(
-                                    path: $"logs/{DateTime.UtcNow:dd-MM-yyyy}.json",
+                                    path: $"C:\\logs\\{DateTime.UtcNow:dd-MM-yyyy}.json",
                                     formatter: new JsonFormatter()
                                 )
                             .CreateLogger();
