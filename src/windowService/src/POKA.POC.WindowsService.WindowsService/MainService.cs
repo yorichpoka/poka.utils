@@ -1,9 +1,7 @@
-﻿using POKA.POC.WindowsService.WindowsService.Application.Commands;
+﻿using POKA.POC.WindowsService.WindowsService.Domain.Entities;
 using Microsoft.Extensions.Logging;
-using System.ServiceProcess;
 using System.ComponentModel;
 using System.Threading;
-using MediatR;
 using System;
 
 namespace POKA.POC.WindowsService.WindowsService
@@ -12,14 +10,12 @@ namespace POKA.POC.WindowsService.WindowsService
     public partial class MainService : AppServiceBase
     {
         private readonly ILogger<MainService> _logger;
-        private readonly IMediator _mediator;
         private Thread _workerThread;
 
-        public MainService(IMediator mediator, ILogger<MainService> logger)
+        public MainService(ILogger<MainService> logger)
         {
             InitializeComponent();
 
-            _mediator = mediator;
             _logger = logger;
         }
 
@@ -27,11 +23,9 @@ namespace POKA.POC.WindowsService.WindowsService
         {
             while (true)
             {
-                var createAndLogItemCommand = new CreateAndLogItemCommand(DateTime.UtcNow.ToString());
+                var itemEntity = new ItemEntity(DateTime.UtcNow.ToString());
 
-                this._mediator
-                    .Send(createAndLogItemCommand)
-                    .Wait();
+                this._logger.LogInformation(itemEntity.ToString());
 
                 Thread.Sleep(3000);
             }

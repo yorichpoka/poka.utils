@@ -2,7 +2,6 @@
 using POKA.POC.WindowsService.WindowsService.Application.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog.Formatting.Json;
-using System.Reflection;
 using Serilog;
 using System;
 
@@ -14,21 +13,7 @@ namespace POKA.POC.WindowsService.Extensions
         {
             serviceCollection
                 .AddSingleton<IAppSettingsProvider, AppSettingsProvider>()
-                .AddLogger()
-                .AddMediatR();
-
-            return serviceCollection;
-        }
-
-        private static IServiceCollection AddMediatR(this IServiceCollection serviceCollection)
-        {
-            serviceCollection
-                .AddMediatR(
-                    mediatRServiceConfiguration =>
-                    {
-                        mediatRServiceConfiguration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-                    }
-                );
+                .AddLogger();
 
             return serviceCollection;
         }
