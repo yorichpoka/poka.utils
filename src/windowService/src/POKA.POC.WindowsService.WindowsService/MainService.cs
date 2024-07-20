@@ -1,13 +1,15 @@
 ﻿using POKA.POC.WindowsService.WindowsService.Application.Commands;
 using Microsoft.Extensions.Logging;
 using System.ServiceProcess;
+using System.ComponentModel;
 using System.Threading;
 using MediatR;
 using System;
 
 namespace POKA.POC.WindowsService.WindowsService
 {
-    public partial class MainService : ServiceBase
+    [RunInstaller(true)]
+    public partial class MainService : AppServiceBase
     {
         private readonly ILogger<MainService> _logger;
         private readonly IMediator _mediator;
@@ -21,7 +23,7 @@ namespace POKA.POC.WindowsService.WindowsService
             _logger = logger;
         }
 
-        private void Working()
+        private void Work()
         {
             while (true)
             {
@@ -39,8 +41,8 @@ namespace POKA.POC.WindowsService.WindowsService
         {
             try
             {
-                var threadStrat = new ThreadStart(Working);
-                this._workerThread = new Thread(threadStrat);
+                var threadStart = new ThreadStart(Work);
+                this._workerThread = new Thread(threadStart);
                 this._workerThread.Start();
             }
             catch (Exception ex)

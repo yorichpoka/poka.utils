@@ -12,6 +12,7 @@ namespace POKA.POC.WindowsService.WindowsService.Test
         {
             _ServiceProvider =  new ServiceCollection()
                                     .AddInfrastructure()
+                                    .AddSingleton<MainService>()
                                     .BuildServiceProvider();
         }
     }
