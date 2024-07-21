@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{FF6CCE48-E9FC-42DF-96FE-499F3846DA58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E3855888-2117-475B-B18E-CC5D6520168A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POKA.POC.WindowsService.WindowsService", "src\POKA.POC.WindowsService.WindowsService\POKA.POC.WindowsService.WindowsService.csproj", "{23CAC8B6-1E7D-43CE-932E-F6E999B9C09E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POKA.POC.WindowsService.WindowsService.Test", "tests\POKA.POC.WindowsService.WindowsService.Test\POKA.POC.WindowsService.WindowsService.Test.csproj", "{3EC287C3-1B3D-472B-94AA-1C01AC730B9C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23CAC8B6-1E7D-43CE-932E-F6E999B9C09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23CAC8B6-1E7D-43CE-932E-F6E999B9C09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23CAC8B6-1E7D-43CE-932E-F6E999B9C09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23CAC8B6-1E7D-43CE-932E-F6E999B9C09E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC287C3-1B3D-472B-94AA-1C01AC730B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC287C3-1B3D-472B-94AA-1C01AC730B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC287C3-1B3D-472B-94AA-1C01AC730B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC287C3-1B3D-472B-94AA-1C01AC730B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23CAC8B6-1E7D-43CE-932E-F6E999B9C09E} = {FF6CCE48-E9FC-42DF-96FE-499F3846DA58}
+		{3EC287C3-1B3D-472B-94AA-1C01AC730B9C} = {E3855888-2117-475B-B18E-CC5D6520168A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F3F71D3-D5DB-423C-88E0-9AC80F1270B9}
